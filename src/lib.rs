@@ -14,7 +14,7 @@ fn to_markdown(text: &str) -> String {
 }
 
 #[pymodule]
-fn airweb(m: &Bound<'_, PyModule>) -> PyResult<()> {
+fn air_web(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(to_markdown, m)?)?;
     Ok(())
 }
