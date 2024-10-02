@@ -9,7 +9,6 @@ keywords = ["web", "crawl", "markdown", "scrape", "cralwer", "scraper"]
 authors = [
   { name = "AWeirdDev", email = "aweirdscratcher@gmail.com" },
 ]
-license = { file = "LICENSE" }
 readme = "README.md"
 requires-python = ">=3.8"
 classifiers = [
