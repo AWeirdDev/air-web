@@ -16,9 +16,34 @@ This is proof that web crawling can be done simply and at the highest level of A
 
 For the Python side, I used `primp` for browser fingerprint impersonation and `selectolax` for selecting HTML nodes.
 
+## 🧐 Redirectors
+Redirectors are used to redirect the HTML selector to one specific node to tidy up the results. For example, if the page has navbars, we can select the main content part to skip it through (if the nav isn't important).
+
+
+```python
+@redirector
+def my_redirector(node):
+  return ok(node.css_first("main"))
+```
+
 ## 📖 Docs
 
 ### <kbd>def</kbd> get()
 
+```python
+def get(
+    url: str,
+    *,
+    redirectors: List[Redirector] = [],
+    ok_codes: list[int] = [],
+    **kwargs,
+) -> str: ...
+```
+
 Sends an HTTP GET request to the specified website and returns the Markdown result.
+
+**Args**:
+- `url` (str): The URL to fetch.
+- `redirectors` (list\[Redirector]): A list of redirectors for indexing into or manipulating specific nodes before converting the HTML to Markdown. See reference.
+- `ok_codes` (list\[int]): A list of OK codes indicating the success status. Even if provided custom ones or not, the code `200` is always on the list.
 
